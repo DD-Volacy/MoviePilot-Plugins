@@ -5,10 +5,13 @@ from app.schemas import MediaServerConf
 from app.schemas.types import SystemConfigKey, ModuleType
 from app.log import logger
 from datetime import datetime
+from pprint import pprint
 
 ServiceBase_Helper = ServiceBaseHelper(SystemConfigKey.MediaServers,MediaServerConf,ModuleType.MediaServer)
 media_server_config = ServiceBase_Helper.get_configs()
+pprint(media_server_config)
 emby_config = media_server_config.get('影音')
+pprint(emby_config)
 base_url = emby_config.get('host')
 
 if base_url is None:
