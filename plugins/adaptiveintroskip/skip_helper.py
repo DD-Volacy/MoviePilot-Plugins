@@ -9,7 +9,7 @@ from datetime import datetime
 ServiceBase_Helper = ServiceBaseHelper(SystemConfigKey.MediaServers,MediaServerConf,ModuleType.MediaServer)
 media_server_config = ServiceBase_Helper.get_configs()
 emby_config = media_server_config.get('影音')
-base_url = emby_config['host']
+base_url = emby_config.get('host')
 
 if base_url is None:
     logger.error('请配置EMBY服务器')
@@ -18,7 +18,7 @@ if not base_url.endswith("/"):
     base_url += "/"
 if not base_url.startswith("http"):
     base_url = "http://" + base_url
-api_key = emby_config['apikey']
+api_key = emby_config.get('apikey')
 headers = {'X-Emby-Token': api_key}
 
 
