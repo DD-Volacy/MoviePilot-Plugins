@@ -8,7 +8,7 @@ from datetime import datetime
 
 ServiceBase_Helper = ServiceBaseHelper(SystemConfigKey.MediaServers,MediaServerConf,ModuleType.MediaServer)
 media_server_config = ServiceBase_Helper.get_configs()
-emby_config = media_server_config.get['影音']
+emby_config = media_server_config.get('影音')
 base_url = emby_config['host']
 
 if base_url is None:
